@@ -1,0 +1,52 @@
+<html>
+    <head>
+
+        <!--[if lt IE 9]><script type="text/javascript">var IE_fix=true;</script><![endif]-->
+<script type="text/javascript">
+function reDirectFuction(){
+
+    var urla="/Users/hejibo/Documents/Usability course/html based AB test/a.html";
+    var urlb="/Users/hejibo/Documents/Usability course/html based AB test/b.html";
+    var url = "https://www.wichita.edu/";
+
+    var y =Math.random(); 
+    if(y<0.5)
+        { 
+            url=urla;
+        } 
+    else
+        {         url=urlb; } 
+
+
+
+   // var url = "https://www.wichita.edu/";
+    if(typeof IE_fix != "undefined") // IE8 and lower fix to pass the http referer
+    {
+        document.write("redirecting..."); // Don't remove this line or appendChild() will fail because it is called before document.onload to make the redirect as fast as possible. Nobody will see this text, it is only a tech fix.
+        var referLink = document.createElement("a");
+        referLink.href = url;
+        document.body.appendChild(referLink);
+        referLink.click();
+    }
+    else { window.location.replace(url); } // All other browsers
+}
+</script>
+
+
+            <style>
+                    Button {
+                       color:#8B008B 
+                       background-color: #FF00FF
+                       border:3px solid #FF00FF
+                    }
+                    </style>
+                    
+    </head>
+<body>
+
+    <h1>Welcome to AB Test
+    </h1>
+<Button onclick="reDirectFuction()">Click here to continue the study</Button>
+    
+    </body>
+    </html>
